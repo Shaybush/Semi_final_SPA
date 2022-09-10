@@ -16,7 +16,6 @@ export const doApi = async () => {
   // copy array
   allCountries_ar.splice(0, data.length, ...data);
   if (lastSearch == undefined || lastSearch == "" || lastSearch == null) {
-    document.querySelector("#id_parent").innerHTML = "";
     createStartCountries(data);
   }
   else {
@@ -26,6 +25,7 @@ export const doApi = async () => {
   }
 }
 export const createStartCountries = (_ar) => {
+  document.querySelector("#id_parent").innerHTML = "";
   let startPage_ar = ["israel", "united states", "france", "united kingdom", "thailand"];
   startPage_ar = _ar.filter(item => startPage_ar.includes(item.name.common.toLowerCase()))
   document.querySelector("#id_loading").classList.add("d-none");
@@ -60,9 +60,12 @@ export const createCountriesByName = async name => {
 
 
 export const createCountries = input => {
-  console.log(typeof input)
   lastSearch = input;
   localStorage.setItem("lastS", lastSearch);
+  if(input == ""){
+    createStartCountries(allCountries_ar);
+    return;
+  }
   const arr = allCountries_ar.filter(item => item.name.common.toLowerCase().includes(input.toLowerCase()) ||
     item.cca3.toLowerCase().includes(input.toLowerCase()) || item.cca2.toLowerCase().includes(input.toLowerCase()));
   console.log(arr);
