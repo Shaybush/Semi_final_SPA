@@ -1,18 +1,39 @@
 import Country from "./country.js";
 const allCountries_ar = []
 let lastSearch = "";
-export const createStartCountries = (_ar) => { 
+
+export const checkLocalStorage = () => {
+  lastSearch = localStorage["lastS"];
+  doApi();
+}
+
+export const doApi = async () => {
+  document.querySelector("#id_loading").classList.remove("d-none");
+  document.querySelector("#up_control").classList.add("d-none");
+  let url = "https://restcountries.com/v3.1/all";
+  let resp = await fetch(url);
+  let data = await resp.json();
   // copy array
-  allCountries_ar.splice(0,_ar.length,..._ar); 
+  allCountries_ar.splice(0, data.length, ...data);
+  if (!lastSearch || lastSearch == "") {
+    createStartCountries(data);
+  }
+  else {
+    document.querySelector("#search-input").value = lastSearch;
+    createCountries(lastSearch);
+  }
+}
+export const createStartCountries = (_ar) => {
+
   // console.log(_ar)
-  let startPage_ar = ["israel","united states","france","united kingdom","thailand"];
+  let startPage_ar = ["israel", "united states", "france", "united kingdom", "thailand"];
   startPage_ar = _ar.filter(item => startPage_ar.includes(item.name.common.toLowerCase()))
   document.querySelector("#id_loading").classList.add("d-none");
   startPage_ar.forEach(item => {
-        let country = new Country("#id_parent",item,createCountriesByName,displayBorderName,createCountries,lastSearch);
-        country.render();
-      })
-      document.querySelector("#up_control").classList.remove("d-none");
+    let country = new Country("#id_parent", item, createCountriesByName, displayBorderName, createCountries, lastSearch);
+    country.render();
+  })
+  document.querySelector("#up_control").classList.remove("d-none");
 }
 
 /** get country code return full name */
@@ -32,28 +53,30 @@ export const createCountriesByName = async name => {
   let resp = await fetch(url);
   let data = await resp.json();
   // console.log(data)
-  document.querySelector("#id_parent").innerHTML ="";
-  let country = new Country("#id_parent",data[0],createCountriesByName,displayBorderName,createCountries,lastSearch);
+  document.querySelector("#id_parent").innerHTML = "";
+  let country = new Country("#id_parent", data[0], createCountriesByName, displayBorderName, createCountries, lastSearch);
   country.singleRender();
 }
 
 
-export const createCountries = input => { 
+export const createCountries = input => {
+  console.log(typeof input)
   lastSearch = input;
+  localStorage.setItem("lastS", lastSearch);
   const arr = allCountries_ar.filter(item => item.name.common.toLowerCase().includes(input.toLowerCase()) ||
-  item.cca3.toLowerCase().includes(input.toLowerCase()) ||item.cca2.toLowerCase().includes(input.toLowerCase()) );
+    item.cca3.toLowerCase().includes(input.toLowerCase()) || item.cca2.toLowerCase().includes(input.toLowerCase()));
   console.log(arr);
   // cca2
   document.querySelector("#id_parent").innerHTML = "";
-  if(arr.length != 0){
+  if (arr.length != 0) {
     arr.forEach(item => {
-      const country = new Country("#id_parent",item,createCountriesByName,displayBorderName,createCountries,lastSearch);
+      const country = new Country("#id_parent", item, createCountriesByName, displayBorderName, createCountries, lastSearch);
       country.render();
     })
     document.querySelector("#id_loading").classList.add("d-none");
     document.querySelector("#up_control").classList.remove("d-none");
   }
-  else{
+  else {
     document.querySelector("#id_loading").classList.add("d-none");
     document.querySelector("#up_control").classList.add("d-none");
     document.querySelector("#id_parent").innerHTML = `
@@ -61,5 +84,5 @@ export const createCountries = input => {
   `
   }
   // up_control
-} 
+}
 
