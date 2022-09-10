@@ -15,22 +15,22 @@ export const doApi = async () => {
   let data = await resp.json();
   // copy array
   allCountries_ar.splice(0, data.length, ...data);
-  if (!lastSearch || lastSearch == "") {
+  if (lastSearch == undefined || lastSearch == "" || lastSearch == null) {
+    document.querySelector("#id_parent").innerHTML = "";
     createStartCountries(data);
   }
   else {
+    console.log(lastSearch)
     document.querySelector("#search-input").value = lastSearch;
     createCountries(lastSearch);
   }
 }
 export const createStartCountries = (_ar) => {
-
-  // console.log(_ar)
   let startPage_ar = ["israel", "united states", "france", "united kingdom", "thailand"];
   startPage_ar = _ar.filter(item => startPage_ar.includes(item.name.common.toLowerCase()))
   document.querySelector("#id_loading").classList.add("d-none");
   startPage_ar.forEach(item => {
-    let country = new Country("#id_parent", item, createCountriesByName, displayBorderName, createCountries, lastSearch);
+    let country = new Country("#id_parent", item, createCountriesByName, displayBorderName, checkLocalStorage, lastSearch);
     country.render();
   })
   document.querySelector("#up_control").classList.remove("d-none");
@@ -54,7 +54,7 @@ export const createCountriesByName = async name => {
   let data = await resp.json();
   // console.log(data)
   document.querySelector("#id_parent").innerHTML = "";
-  let country = new Country("#id_parent", data[0], createCountriesByName, displayBorderName, createCountries, lastSearch);
+  let country = new Country("#id_parent", data[0], createCountriesByName, displayBorderName, checkLocalStorage, lastSearch);
   country.singleRender();
 }
 
@@ -70,7 +70,7 @@ export const createCountries = input => {
   document.querySelector("#id_parent").innerHTML = "";
   if (arr.length != 0) {
     arr.forEach(item => {
-      const country = new Country("#id_parent", item, createCountriesByName, displayBorderName, createCountries, lastSearch);
+      const country = new Country("#id_parent", item, createCountriesByName, displayBorderName, checkLocalStorage, lastSearch);
       country.render();
     })
     document.querySelector("#id_loading").classList.add("d-none");

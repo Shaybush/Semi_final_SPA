@@ -1,9 +1,9 @@
 export default class Country {
-    constructor(_parent, _item,_createCountriesByName,_displayBorderName,_createCountries,_lastS) {
+    constructor(_parent, _item,_createCountriesByName,_displayBorderName,_checkLocalStorage,_lastS) {
         // functions
         this.createCountriesByName = _createCountriesByName;
         this.displayBorderName = _displayBorderName;
-        this.createCountries = _createCountries;
+        this.checkLocalStorage = _checkLocalStorage;
 
         this.lastS = _lastS;
         this.parent = _parent;
@@ -111,7 +111,7 @@ export default class Country {
           }    
           let btn_backMain = div.querySelector(".backMain_btn");
           btn_backMain.addEventListener("click", () => {
-            this.createCountries(this.lastS);
+            this.checkLocalStorage();
           })
     }
 
