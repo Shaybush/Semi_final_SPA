@@ -15,29 +15,6 @@ export const createStartCountries = (_ar) => {
       document.querySelector("#up_control").classList.remove("d-none");
 }
 
-export const createCountries = input => { 
-  let arr = allCountries_ar.filter(item => item.name.common.toLowerCase().includes(input.toLowerCase()) ||
-  item.cca3.toLowerCase().includes(input.toLowerCase()) ||item.cca2.toLowerCase().includes(input.toLowerCase()) );
-  // cca2
-  document.querySelector("#id_parent").innerHTML = "";
-  if(arr.length!=0){
-    arr.forEach(item => {
-      let country = new Country("#id_parent",item,createCountriesByName,displayBorderName);
-      country.render();
-    })
-    document.querySelector("#id_loading").classList.add("d-none");
-    document.querySelector("#up_control").classList.remove("d-none");
-  }
-  else{
-    document.querySelector("#id_loading").classList.add("d-none");
-    document.querySelector("#up_control").classList.add("d-none");
-    document.querySelector("#id_parent").innerHTML = `
-    <h4>Not found valid countries...</h4>
-  `
-  }
-  // up_control
-} 
-
 /** get country code return full name */
 export const displayBorderName = async (code) => {
   let url = `https://restcountries.com/v3.1/alpha/${code.toLowerCase()}`;
@@ -59,3 +36,29 @@ export const createCountriesByName = async name => {
   let country = new Country("#id_parent",data[0],createCountriesByName,displayBorderName);
   country.singleRender();
 }
+
+
+export const createCountries = input => { 
+  const arr = allCountries_ar.filter(item => item.name.common.toLowerCase().includes(input.toLowerCase()) ||
+  item.cca3.toLowerCase().includes(input.toLowerCase()) ||item.cca2.toLowerCase().includes(input.toLowerCase()) );
+  console.log(arr);
+  // cca2
+  document.querySelector("#id_parent").innerHTML = "";
+  if(arr.length != 0){
+    arr.forEach(item => {
+      const country = new Country("#id_parent",item,createCountriesByName,displayBorderName);
+      country.render();
+    })
+    document.querySelector("#id_loading").classList.add("d-none");
+    document.querySelector("#up_control").classList.remove("d-none");
+  }
+  else{
+    document.querySelector("#id_loading").classList.add("d-none");
+    document.querySelector("#up_control").classList.add("d-none");
+    document.querySelector("#id_parent").innerHTML = `
+    <h4>Not found valid countries...</h4>
+  `
+  }
+  // up_control
+} 
+

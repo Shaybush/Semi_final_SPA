@@ -12,8 +12,10 @@ export default class Country {
             const currencyArray = Object.values(_item.currencies);
             this.currencies = `${currencyArray[0].name} ${currencyArray[0].symbol}`;
         }
-        const languages_ar = Object.values(_item.languages);
-        this.languages = languages_ar.join();
+        if(_item.languages != null){
+            const languages_ar = Object.values(_item.languages);
+            this.languages = languages_ar.join();
+        }
         this.borders_ar = _item.borders;
         this.region = _item.region;
         this.lat = _item.latlng[0];
