@@ -1,0 +1,128 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  padding: 0;
+  margin: 0;
+}
+
+.darkmode-toggle {
+  z-index: 999;
+}
+
+header {
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+header h2 {
+  font-size: 5em;
+  color: red;
+}
+header nav {
+  background: #999;
+}
+header nav .logo {
+  isolation: isolate;
+}
+header nav .form-control:focus {
+  border-color: #189AB4;
+  box-shadow: inset 0 1px 1px rgba(212, 241, 244, 0.6980392157), 0 0 8px rgba(24, 154, 180, 0.7019607843);
+  isolation: isolate;
+}
+header nav #search-button {
+  isolation: isolate;
+}
+header nav .common_countries li {
+  padding: 0 16px;
+  transition: 800ms;
+  font-size: 0.8em;
+  color: rgb(85, 147, 217);
+  cursor: pointer;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+header nav .common_countries li img {
+  margin-left: 4px;
+  width: 24px;
+}
+header nav .common_countries li:hover {
+  background: rgb(206, 229, 255);
+}
+header nav .common_countries li:nth-of-type(-n+4) {
+  border-right: 1px solid black;
+}
+
+@media (max-width: 768px) {
+  header nav .common_countries li {
+    padding: 0 4px;
+    font-size: 0.8em;
+  }
+  header nav .common_countries li img {
+    width: 12px;
+    margin-left: 2px;
+  }
+}
+footer {
+  background: #eee;
+  display: flex;
+  align-items: center;
+}
+footer .aboutMe_box span {
+  font-size: 1em;
+}
+footer .aboutMe_box nav a {
+  padding: 0 8px;
+  font-size: 1em;
+  text-decoration: none;
+  color: var(--black);
+}
+footer .aboutMe_box nav a:hover {
+  color: var(--primary-500);
+}
+footer .platforms_box nav a {
+  text-decoration: none;
+  color: var(--black);
+  font-size: 2.5em;
+  padding: 0 4px;
+  transition: 800ms;
+}
+footer .platforms_box nav a .fa-github-square {
+  color: var(--black);
+  transition: 800ms;
+}
+footer .platforms_box nav a .fa-github-square:hover {
+  transform: scale(1.1);
+}
+footer .platforms_box nav a .fa-facebook-square {
+  color: var(--grey-900);
+  transition: 800ms;
+}
+footer .platforms_box nav a .fa-facebook-square:hover {
+  transform: scale(1.1);
+}
+footer .platforms_box nav a .fa-linkedin-square {
+  color: var(--black);
+  transition: 800ms;
+}
+footer .platforms_box nav a .fa-linkedin-square:hover {
+  transform: scale(1.1);
+}
+footer .platforms_box nav a .fa-instagram {
+  color: var(--red-dark);
+  transition: 800ms;
+}
+footer .platforms_box nav a .fa-instagram:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 992px) {
+  footer .aboutMe_box span {
+    font-size: 0.8em;
+  }
+  footer .aboutMe_box nav a {
+    font-size: 0.8em;
+  }
+}

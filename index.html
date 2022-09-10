@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semi-Final - JS project Shay Bushary</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer type="module" src="js/app.js"></script>
+</head>
+
+<body>
+    
+    <header class="container-fluid" id="header">
+        <nav class="navbar-light bg-light row align-items-center p-2 justify-content-center">
+            <div class="logo col-lg-2 d-none d-lg-flex text-primary align-items-center"><h6>Countries Search</h6><img class="me-1" src="images/map_icon.png" alt="logo" width="24px"></div>
+            <div class="brand col-lg-4 row mb-lg-0 mb-2">
+                <div class="search-bar d-flex">
+                    <input class="form-control" type="search" id="search-input"  name="search" pattern=".*\S.*">
+                    <button class="btn btn-primary ms-2" id="search-button" type="submit">
+                        <span>Search</span>
+                    </button>
+                </div>
+            </div>
+            <div class="common_countries col-8 col-lg-6">
+                <ul class="list-group list-group-horizontal d-flex justify-content-center">
+                    <li id="usa_header" class="list-group-item">usa <img src="images/usa.png" alt="usa"></li>
+                    <li id="israel_header" class="list-group-item">israel <img src="images/israel.png" alt="israel"></li>
+                    <li id="france_header" class="list-group-item">france <img src="images/france.png" alt="france"></li>
+                    <li id="uk_header" class="list-group-item">uk <img src="images/uk.png" alt="uk"></li>
+                    <li id="thailand_header" class="list-group-item">thailand <img src="images/thailand.png" alt="thailand">
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container-fluid p-4">
+        <div class="container">
+            <!-- loading section -->
+            <section class="loading d-flex justify-content-center" id="id_loading">
+                <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </section>
+            <div class="row  p-md-4" id="id_parent">
+            </div>
+            <div class="d-flex justify-content-end p-3" id="up_control">
+                <a href="#header"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    </main>
+    <!-- footer start -->
+    <footer class="container-fluid">
+        <div class="container p-3">
+            <div class="row align-items-center">
+                <div>
+                    <div class="platforms_box text-center">
+                        <nav>
+                            <a target="_blank" href="https://www.instagram.com/shay_bushary/">
+                                <span class="instagram">
+                                    <span class="fa fa-instagram"></span>
+                                </span>
+                            </a>
+                            <a target="_blank" href="https://www.linkedin.com/in/shaybushary/">
+                                <span class="fa fa-linkedin-square" aria-hidden="true"></span>
+                            </a>
+                            <a target="_blank" href="https://www.facebook.com/shay.bushary">
+                                <span class="fa fa-facebook-square" aria-hidden="true"></span>
+                            </a>
+                            <a target="_blank" href="https://github.com/Shaybush">
+                                <span class="fa fa-github-square" aria-hidden="true"></span>
+                            </a>
+                        </nav>
+                    </div>
+                    <div class="aboutMe_box text-center">
+                        <span>Fullstack Web Developer © 2022</span>
+                        <p>Shay Bushary</p>
+                        <!-- <nav>
+                            <a class="border-end border-1 border-dark" href="index.html">home</a>
+                            <a href="pages/gallery.html">gallery</a>
+                        </nav> -->
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+    <!-- footer end -->
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+    <script src="js/darkMode.js"></script>
+</body>
+
+</html>

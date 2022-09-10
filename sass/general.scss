@@ -1,0 +1,177 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    padding: 0;
+    margin: 0;
+}
+.darkmode-toggle {
+    z-index: 999;
+  }
+// header start
+header {
+    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    h2 {
+        font-size: 5em;
+        color: red;
+    }
+
+    nav {
+        background: #999;
+        .logo{
+            isolation: isolate;
+        }
+        .form-control:focus {
+            border-color: #189AB4;
+            box-shadow: inset 0 1px 1px #d4f1f4b2, 0 0 8px #189ab4b3;
+            isolation: isolate;
+        }
+        #search-button{
+            isolation: isolate;
+        }
+        .common_countries {
+            li {
+                padding: 0 16px;
+                transition: 800ms;
+                font-size: 0.8em;
+                color: rgb(85, 147, 217);
+                cursor: pointer;
+                text-transform: uppercase;
+                display: flex;
+                align-items: center;
+
+                img {
+                    margin-left: 4px;
+                    width: 24px;
+                }
+            }
+
+            li:hover {
+                background: rgb(206, 229, 255);
+            }
+
+            li:nth-of-type(-n+4) {
+                border-right: 1px solid black;
+            }
+        }
+    }
+}
+
+@media(max-width:768px) {
+    header {
+        nav {
+            .common_countries {
+                li {
+                    padding: 0 4px;
+                    font-size: 0.8em;
+
+                    img {
+                        width: 12px;
+                        margin-left: 2px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// header end
+// footer start
+footer {
+    background: #eee;
+    display: flex;
+    align-items: center;
+    .aboutMe_box {
+        span {
+            font-size: 1em;
+        }
+
+        nav {
+            a {
+                padding: 0 8px;
+                font-size: 1em;
+                text-decoration: none;
+                color: var(--black);
+            }
+
+            a:hover {
+                color: var(--primary-500);
+            }
+        }
+    }
+
+    .platforms_box {
+        nav {
+            a {
+                text-decoration: none;
+                color: var(--black);
+                font-size: 2.5em;
+                padding: 0 4px;
+                transition: 800ms;
+
+                .fa-github-square {
+                    color: var(--black);
+                    transition: 800ms;
+                }
+
+                .fa-github-square:hover {
+                    transform: scale(1.1);
+                }
+
+                .fa-facebook-square {
+                    color: var(--grey-900);
+                    transition: 800ms;
+                }
+
+                .fa-facebook-square:hover {
+                    transform: scale(1.1);
+                }
+
+                .fa-linkedin-square {
+                    color: var(--black);
+                    transition: 800ms;
+                }
+
+                .fa-linkedin-square:hover {
+                    transform: scale(1.1);
+                }
+
+                .fa-instagram {
+                    color: var(--red-dark);
+                    transition: 800ms;
+                }
+
+                .fa-instagram:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:992px) {
+    footer {
+        .aboutMe_box {
+            span {
+                font-size: 0.8em;
+            }
+
+            nav {
+                a {
+                    font-size: 0.8em;
+                }
+            }
+        }
+
+        .platforms_box {
+            nav a {
+                // font-size: 1.5em;
+            }
+        }
+    }
+}
+
+// footer close

@@ -1,0 +1,52 @@
+body::-webkit-scrollbar {
+  width: 0.7em;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #0275d8;
+  outline: 2px solid Info;
+}
+
+body {
+  scrollbar-width: 4px;
+}
+
+main {
+  min-height: 70vh;
+}
+main .container .box {
+  transition: 800ms;
+  cursor: pointer;
+}
+main .container .box .card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+main .container .box .card .card-image {
+  height: 200px;
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 8px;
+}
+main .container .box .card:hover {
+  background: #add8e6;
+}
+main .container .box:hover,
+main .container .box::after {
+  transform: translate3d(0, -10px, 0);
+}
+main .container .fa.fa-angle-double-up {
+  font-size: 5em;
+  animation: action 0.5s infinite alternate;
+}
+@keyframes action {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}

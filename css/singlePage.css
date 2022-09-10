@@ -1,0 +1,24 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+body main #id_parent {
+  display: flex;
+  min-height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+body main #id_parent .card {
+  box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+body main #id_parent .card .neighbors {
+  color: #0275d8;
+}
+body main #id_parent .card .neighbors:hover {
+  color: #61a4de;
+}
+body main #id_parent .fa {
+  font-size: 1.5em;
+}
