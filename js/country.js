@@ -37,9 +37,12 @@ export default class Country {
        </div>
         `
         myDiv.addEventListener("click", () => {
-            // window.open(`pages/singleCountry.html?name=${this.name}`, "_self");
+            // fix the bug of america
+            if(this.name === "United States"){
+                this.name = "United%20States%20of%20America";
+            }
             // send name to build finction
-            this.createCountriesByName(this.name)
+            this.createCountriesByName(this.name);
         })
     }
     singleRender() {

@@ -24,8 +24,7 @@ export const declareEvents = () => {
     // need to change all
     usa_li.addEventListener("click",()=>{
         // window.open(`pages/singleCountry.html?name=United States`, "_self");
-        createCountriesByName("united states")
-
+        createCountriesByName("United%20States%20of%20America")
     })
     israel_li.addEventListener("click",()=>{
         // window.open(`pages/singleCountry.html?name=israel`, "_self");

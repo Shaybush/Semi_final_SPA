@@ -4,7 +4,7 @@ const allCountries_ar = []
 export const createStartCountries = (_ar) => { 
   // copy array
   allCountries_ar.splice(0,_ar.length,..._ar); 
-  console.log(_ar)
+  // console.log(_ar)
   let startPage_ar = ["israel","united states","france","united kingdom","thailand"];
   startPage_ar = _ar.filter(item => startPage_ar.includes(item.name.common.toLowerCase()))
   document.querySelector("#id_loading").classList.add("d-none");
@@ -50,11 +50,11 @@ export const displayBorderName = async (code) => {
 }
 /** get name of country and render single country */
 export const createCountriesByName = async name => {
-  console.log(name);
+  // console.log(name);
   let url = `https://restcountries.com/v3.1/name/${name.toLowerCase()}`;
   let resp = await fetch(url);
   let data = await resp.json();
-  console.log(data)
+  // console.log(data)
   document.querySelector("#id_parent").innerHTML ="";
   let country = new Country("#id_parent",data[0],createCountriesByName,displayBorderName);
   country.singleRender();
