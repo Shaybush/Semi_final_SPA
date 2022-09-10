@@ -14,15 +14,12 @@ p {
 // header start
 header {
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0, 0, 0, 0);
-    h2 {
-        font-size: 5em;
-        color: red;
-    }
 
     nav {
         background: #999;
         .logo{
             isolation: isolate;
+            cursor: pointer;
         }
         .form-control:focus {
             border-color: #189AB4;
