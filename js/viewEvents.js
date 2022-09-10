@@ -1,4 +1,4 @@
-import { createCountries, createCountriesByName, checkLocalStorage } from "./countriesManger.js";
+import { createCountries, createCountriesByName, checkLocalStorage, doApi } from "./countriesManger.js";
 
 export const declareEvents = () => {
     let search = document.querySelector("#search-input");
@@ -46,5 +46,6 @@ export const declareEvents = () => {
     })
     logo.addEventListener("click", () => {
         checkLocalStorage();
+        doApi();
     })
 }
