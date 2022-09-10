@@ -1,8 +1,11 @@
 export default class Country {
-    constructor(_parent, _item,_createCountriesByName,_displayBorderName) {
+    constructor(_parent, _item,_createCountriesByName,_displayBorderName,_createCountries,_lastS) {
         // functions
         this.createCountriesByName = _createCountriesByName;
         this.displayBorderName = _displayBorderName;
+        this.createCountries = _createCountries;
+
+        this.lastS = _lastS;
         this.parent = _parent;
         this.image = _item.flags.png;
         this.name = _item.name.common;
@@ -108,7 +111,7 @@ export default class Country {
           }    
           let btn_backMain = div.querySelector(".backMain_btn");
           btn_backMain.addEventListener("click", () => {
-            window.open("../index.html", "_self");
+            this.createCountries(this.lastS);
           })
     }
 
