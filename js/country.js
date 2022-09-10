@@ -72,7 +72,7 @@ export default class Country {
           </div>
           <div class="mapAndBoreders row mt-3 p-2">
           <div class="map col-md-6"></div>
-            <div class="borders col-md-6"></div>
+            <div class="borders col-md-6 mt-2 mt-md-0 mb-3"></div>
           </div>
         </div>
         <div className="controls row p-2">
@@ -81,7 +81,7 @@ export default class Country {
           `
           document.querySelector(".map").innerHTML = `
           <iframe 
-          width="300" 
+          width="100%" 
           height="170" 
           frameborder="0" 
           scrolling="no" 
