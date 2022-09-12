@@ -45,7 +45,9 @@ export const declareEvents = () => {
         createCountriesByName("france");
     })
     logo.addEventListener("click", () => {
+        localStorage.setItem("lastS", "");
         checkLocalStorage();
         doApi();
+        document.querySelector("#search-input").value = "";
     })
 }

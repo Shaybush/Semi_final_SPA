@@ -76,7 +76,7 @@ export default class Country {
           </div>
         </div>
         <div className="controls row p-2">
-         <button class="backMain_btn btn btn-primary" title="home"><i class="fa fa-home" aria-hidden="true"></i></button>
+         <button class="backMain_btn btn btn-secondary" title="home"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
         </div>
           `
           document.querySelector(".map").innerHTML = `
